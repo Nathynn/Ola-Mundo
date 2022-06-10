@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Peso Médio</title>
+  <style>
+      h1 {
+          color: rgb(0, 0, 0);
+          font-family: arial, sans-serif;
+          font-size: 35px;	
+	      text-align: center;
+          background-color: rgba(0, 47, 255, 0.644);
+          text-indent: 0px;
+          margin-top: 20px;
+      }
+      h2 {
+          color: rgb(0, 0, 0);
+          font-family: arial, sans-serif;
+          font-size: 25px;	
+	      text-align: justify;
+          background-color: rgba(0, 47, 255, 0.644);
+          margin-top: 30px;
+      }
+      p{
+          color: rgb(0, 0, 0);
+          font-family: arial, sans-serif;
+          font-size: 15px;	
+	      text-align: justify;
+          margin-top: 10px;
+	  }
+      legend{
+          color: rgb(0, 0, 0);
+          font-family: arial, sans-serif;	
+          font-size: 20px;
+	      text-align: justify;
+          background-color: rgba(0, 47, 255, 0.644);
+          margin-top: 10px;
+      }
+      fieldset{
+        margin-top: 20px;
+        background-color: rgb(250, 245, 245);
+        
+
+      }
+  </style>
+  <script>
+
+
+  </script>
+</head>
+<body>
+<div id="interface">
+    <header id="cabecalho">
+        <hgroup>
+        </hgroup>
+        <h1>Peso Médio</h1>
+        <SECTION Id="Corpo-formulario">  
+        </SECTION>
+    </header>  
+<form method="post" id="pesos">
+    <fieldset id="incluir_peso">
+        <legend><b>Inclusão as informações da Fórmula (Cápsula/Sachês/Comprimidos)</b></legend>
+        <p><label for="Qtde">Quantidade Múltipla da fórmula</label> <input type="number" name="Qtde" id="Qtde" size="5" min="0" max="9999" placeholder="Qtde Multipla"></p>
+        <p><label for="PEV">Peso da Embalagem vazia: </label><input type="number" name="tpev" id="PEV" size="10" min="0" max="99" placeholder="Peso Vazio"></p>
+        <p><label for="Pteo"> Peso Teórico: </label><input type="number" name="tPteo" id="Pteo" size="10" min="0" max="99" placeholder="Peso teórico"> Mg</p>
+    </fieldset>
+    <fieldset id=" incluir_formula ">
+        <legend><b> Inclusão dos pesos (Cápsula/Comprimidos) </b></legend>
+        <p><label for="P01"> Peso 01: </label> <input type="text" name="tP1" id="P01" size="10" maxlength="6" placeholder="1º peso"></p>
+        <p><label for="P02"> Peso 02: </label> <input type="text" name="tP2" id="P02" size="10" maxlength="6" placeholder="2º peso"></p>
+        <p><label for="P03"> Peso 03: </label> <input type="text" name="tP3" id="P03" size="10" maxlength="6" placeholder="3º peso"></p>
+        <p><label for="P04"> Peso 04: </label> <input type="text" name="tP4" id="P04" size="10" maxlength="6" placeholder="4º peso"></p>
+        <p><label for="P05"> Peso 05: </label> <input type="text" name="tP5" id="P05" size="10" maxlength="6" placeholder="5º peso"></p>
+        <p><label for="P06"> Peso 06: </label> <input type="text" name="tP6" id="P06" size="10" maxlength="6" placeholder="6º peso"></p>
+        <p><label for="P07"> Peso 07: </label> <input type="text" name="tP7" id="P07" size="10" maxlength="6" placeholder="7º peso"></p>
+        <p><label for="P08"> Peso 08: </label> <input type="text" name="tP8" id="P08" size="10" maxlength="6" placeholder="8º peso"></p>
+        <p><label for="P09"> Peso 09: </label> <input type="text" name="tP9" id="P09" size="10" maxlength="6" placeholder="9º peso"></p>
+        <p><label for="P10"> Peso 10: </label> <input type="text" name="tP10" id="P10" size="10" maxlength="6" placeholder="10º peso"></p>
+        <P><input type="button" value="Calcular" onclick="calcular()"> </P>
+        <div id="pm" > Resultultado</div>
+    </fieldset>
+    <fieldset id="Resultado">
+        <legend><b>Resultado do Peso Médio (Cápsula/Sachês/Comprimidos)</b></legend>
+        <p><label for="DP">Desvio Padrão </label> <input type="number" name="tdesv" id="Dp" size="10" min="0" max="9999" placeholder="Desv. Padrão" readonly></p>
+        <p><label for="">Coeficiente de Variação </label> <input type="number" name="tCV" id="CV" size="10" min="0" max="9999" placeholder="" readonly> %</p>
+        <p><label for="PMA"> Peso médio das Amostras </label><input type="number" name="tPMA" id="PMA" size="10" min="0" max="99"readonly></p>
+        <p><label select="Res"> Resultado </label><input type="text" name="tRes" id="Res" readonly></p>
+    </fieldset>    
+
+</form>    
+    <script>
+       function calcular(){
+        var tP1 = window.document.getElementById("P01")
+        var tP2 = window.document.getElementById("P02")
+        var tP3 = window.document.getElementById("P03")
+        var tP4 = window.document.getElementById("P04")
+        var tP5 = window.document.getElementById("P05")
+        var tP6 = window.document.getElementById("P06")
+        var tP7 = window.document.getElementById("P07")
+        var tP8 = window.document.getElementById("P08")
+        var tP9 = window.document.getElementById("P09")
+        var tP10 = window.document.getElementById("P10")
+        var pm = window.document.getElementById("pm")
+        var p1 = Number(tP1.value)
+        var p2 = Number(tP2.value)
+        var p3 = Number(tP3.value)
+        var p4 = Number(tP4.value)
+        var p5 = Number(tP5.value)
+        var p1 = Number(tP6.value)
+        var p1 = Number(tP7.value)
+        var p1 = Number(tP8.value)
+        var p1 = Number(tP9.value)
+        var p1 = Number(tP10.value)
+        var pmed = (p1+p2+p3+p4+p5+p6+p7+p8+p9+p10)/10
+        pm.innerHTML = pmed
+       }
+    </script>
+</div>
+</body>
+</html>
+ 
