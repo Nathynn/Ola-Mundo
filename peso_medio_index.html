@@ -88,33 +88,44 @@
     </fieldset>    
 
 </form>    
-    <script>
-       function calcular(){
-        var tP1 = window.document.getElementById("P01")
-        var tP2 = window.document.getElementById("P02")
-        var tP3 = window.document.getElementById("P03")
-        var tP4 = window.document.getElementById("P04")
-        var tP5 = window.document.getElementById("P05")
-        var tP6 = window.document.getElementById("P06")
-        var tP7 = window.document.getElementById("P07")
-        var tP8 = window.document.getElementById("P08")
-        var tP9 = window.document.getElementById("P09")
-        var tP10 = window.document.getElementById("P10")
-        var pm = window.document.getElementById("pm")
-        var p1 = Number(tP1.value)
-        var p2 = Number(tP2.value)
-        var p3 = Number(tP3.value)
-        var p4 = Number(tP4.value)
-        var p5 = Number(tP5.value)
-        var p1 = Number(tP6.value)
-        var p1 = Number(tP7.value)
-        var p1 = Number(tP8.value)
-        var p1 = Number(tP9.value)
-        var p1 = Number(tP10.value)
-        var pmed = (p1+p2+p3+p4+p5+p6+p7+p8+p9+p10)/10
-        pm.innerHTML = pmed
-       }
-    </script>
+<script>
+    
+    function calcular() {
+    var P1 = window.document.getElementById('p01')
+    var P2 = window.document.getElementById('p02')
+    var P3 = window.document.getElementById('p03')
+    var P4 = window.document.getElementById('p04')
+    var P5 = window.document.getElementById('p05')
+    var P6 = window.document.getElementById('p06')
+    var P7 = window.document.getElementById('p07')
+    var P8 = window.document.getElementById('p08')
+    var P9 = window.document.getElementById('p09')
+    var P10 = window.document.getElementById('p10')
+    var res = window.document.getElementById('Resultado')
+    var res1 = window.document.getElementById('Resultado1')
+    var res2 = window.document.getElementById('Resultado2')
+    var res3 = window.document.getElementById('Resultado3')
+    var n1 = Number(P1.value)
+    var n2 = Number(P2.value)
+    var n3 = Number(P3.value)
+    var n4 = Number(P4.value)
+    var n5 = Number(P5.value)
+    var n6 = Number(P6.value)
+    var n7 = Number(P7.value)
+    var n8 = Number(P8.value)
+    var n9 = Number(P9.value)
+    var n10 = Number(P10.value)
+    var media = (n1+n2+n3+n4+n5+n6+n7+n8+n9+n10)/10
+    var vr = ((n1 - media)**2) +((n2 - media)**2) + ((n3 - media)**2) + ((n4 - media)**2) + ((n5 - media)**2) +((n6 - media)**2) +((n7 - media)**2) +((n8 - media)**2) +((n9 - media)**2) +((n10 - media)**2) / 9
+    var dp = vr**(1/2)
+    var cv = (dp/media)*100       
+    res.innerHTML = `<strong> PESO MÉDIO DAS CÁPSULAS:  ${media} Mg</strong>`
+    res1.innerHTML = `<strong> VRIANTE DAS CÁPSULAS:  ${vr} Mg</strong>`
+    res2.innerHTML = `<strong> DESVIO PADRÃO DAS CÁPSULAS:  ${dp} Mg</strong>`
+    res3.innerHTML = `<strong> COEFICIENTE DE VARIAÇÃO DAS CÁPSULAS: ${cv} %</strong>`
+    
+ }
+ </script>
 </div>
 </body>
 </html>
