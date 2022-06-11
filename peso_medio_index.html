@@ -74,22 +74,22 @@
 <form method="post" id="pesos">
     <fieldset id="incluir_peso">
         <legend><b>Inclusão as informações da Fórmula (Cápsula/Sachês/Comprimidos)</b></legend>
-        <p><label for="Qtde">Quantidade Múltipla da fórmula</label> <input type="number" name="Qtde" id="Qtde" size="5" min="0" max="9999" placeholder="Qtde Multipla"></p>
-        <p><label for="PEV">Peso da Embalagem vazia: </label><input type="number" name="tpev" id="PEV" size="10" min="0" max="99" placeholder="Peso Vazio"></p>
-        <p><label for="Pteo"> Peso Teórico: </label><input type="number" name="tPteo" id="Pteo" size="10" min="0" max="99" placeholder="Peso teórico"> Mg</p>
+        <p><label for="Qtde">Quantidade Múltipla da fórmula</label> <input type="number" name="Qtde" id="Qtde" size="5" min="0" max="9999" placeholder="Qtde"></p>
+        <p><label for="PEV">Peso da Embalagem vazia: </label><input type="number" name="tpev" id="PEV" size="15" min="0" max="99" placeholder="XXMg"></p>
+        <p><label for="Pteo"> Peso Teórico: </label><input type="number" name="tPteo" id="Pteo" size="15" min="0" max="99" placeholder="XXMg"> Mg</p>
     </fieldset>
     <fieldset id=" incluir_formula ">
         <legend><b> Inclusão dos pesos (Cápsula/Comprimidos) </b></legend>
-        <p>1ª Cápsula...: <input type="number" name="p01" id="p01"></p>
-        <p>2ª Cápsula...: <input type="number" name="p02" id="p02"></p>
-        <p>3ª Cápsula...: <input type="number" name="p03" id="p03"></p>
-        <p>4ª Cápsula...: <input type="number" name="p04" id="p04"></p>
-        <p>5ª Cápsula...: <input type="number" name="p05" id="p05"></p>
-        <p>6ª Cápsula...: <input type="number" name="p06" id="p06"></p>
-        <p>7ª Cápsula...: <input type="number" name="p07" id="p07"></p>
-        <p>8ª Cápsula...: <input type="number" name="p08" id="p08"></p>
-        <p>9ª Cápsula...: <input type="number" name="p09" id="p09"></p>
-        <p>10ª Cápsula.: <input type="number" name="p10" id="p10"></p>
+        <p> 01ª Cápsula...: <input type="number" name="p01" id="p01"></p>
+        <p> 02ª Cápsula...: <input type="number" name="p02" id="p02"></p>
+        <p> 03ª Cápsula...: <input type="number" name="p03" id="p03"></p>
+        <p> 04ª Cápsula...: <input type="number" name="p04" id="p04"></p>
+        <p> 05ª Cápsula...: <input type="number" name="p05" id="p05"></p>
+        <p> 06ª Cápsula...: <input type="number" name="p06" id="p06"></p>
+        <p> 07ª Cápsula...: <input type="number" name="p07" id="p07"></p>
+        <p> 08ª Cápsula...: <input type="number" name="p08" id="p08"></p>
+        <p> 09ª Cápsula...: <input type="number" name="p09" id="p09"></p>
+        <p> 10ª Cápsula...: <input type="number" name="p10" id="p10"></p>
 
         <P><input id="calc" type="button" value="Calcular" onclick="calcular()"> </P>
 
@@ -115,11 +115,13 @@
        var P8 = window.document.getElementById('p08')
        var P9 = window.document.getElementById('p09')
        var P10 = window.document.getElementById('p10')
+
        var res = window.document.getElementById('Resultado')
        var res1 = window.document.getElementById('Resultado1')
        var res2 = window.document.getElementById('Resultado2')
        var res3 = window.document.getElementById('Resultado3')
        var res4 = window.document.getElementById('Resultado4')
+
        var n1 = Number(P1.value)
        var n2 = Number(P2.value)
        var n3 = Number(P3.value)
@@ -130,6 +132,7 @@
        var n8 = Number(P8.value)
        var n9 = Number(P9.value)
        var n10 = Number(P10.value)
+       
        var media = (n1+n2+n3+n4+n5+n6+n7+n8+n9+n10)/10
        const mediaf = media.toFixed(2)
 
@@ -149,11 +152,11 @@
        
         if (cv >= 4 )
             res4.innerHTML = `<strong> Não aporvado!<strong>`
-        else
+        else if (cv < 4)
             res4.innerHTML = `<strong> Aprovado!<strong>`
-       
-       
-    }
+        else 
+            res4.innerHTML = `*** Resultado da Análise ***`
+        }
     </script>
 </div>
 </body>
