@@ -143,14 +143,14 @@
        const cvf = cv.toFixed(2)
 
        res.innerHTML = `<strong> PESO MÉDIO DAS CÁPSULAS:  ${mediaf} Mg</strong>`
-       res1.innerHTML = `<strong> VRIANTE DAS CÁPSULAS:  ${vrf} Mg</strong>`
+       res1.innerHTML = `<strong> VARIANTE DAS CÁPSULAS:  ${vrf} Mg</strong>`
        res2.innerHTML = `<strong> DESVIO PADRÃO DAS CÁPSULAS:  ${dpf} Mg</strong>`
        res3.innerHTML = `<strong> COEFICIENTE DE VARIAÇÃO DAS CÁPSULAS: ${cvf} %</strong>`
        
         if (cv >= 4 )
-            res4.innerHTML = `<strong> Não aporvado!`
+            res4.innerHTML = `<strong> Não aporvado!<strong>`
         else
-            res4.innerHTML = `<strong> Aprovado!`
+            res4.innerHTML = `<strong> Aprovado!<strong>`
        
        
     }
