@@ -39,14 +39,27 @@
       fieldset{
         margin-top: 20px;
         background-color: rgb(250, 245, 245);
-        
-
-      }
+       }
+       div#Resultado {
+           font: normal 12pt arial;
+       }
+       div#Resultado1 {
+           font: normal 12pt arial;
+       }
+       div#Resultado2 {
+           font: normal 12pt arial;
+       }
+       div#Resultado3 {
+           font: normal 12pt arial;
+       }
+       input#calc { 
+           font:normal 25pt arial;
+           width: 300px;
+       }
+       div#Resultado4 {
+           font: normal 12pt arial;
+       }
   </style>
-  <script>
-
-
-  </script>
 </head>
 <body>
 <div id="interface">
@@ -66,66 +79,71 @@
     </fieldset>
     <fieldset id=" incluir_formula ">
         <legend><b> Inclusão dos pesos (Cápsula/Comprimidos) </b></legend>
-        <p><label for="P01"> Peso 01: </label> <input type="text" name="tP1" id="P01" size="10" maxlength="6" placeholder="1º peso"></p>
-        <p><label for="P02"> Peso 02: </label> <input type="text" name="tP2" id="P02" size="10" maxlength="6" placeholder="2º peso"></p>
-        <p><label for="P03"> Peso 03: </label> <input type="text" name="tP3" id="P03" size="10" maxlength="6" placeholder="3º peso"></p>
-        <p><label for="P04"> Peso 04: </label> <input type="text" name="tP4" id="P04" size="10" maxlength="6" placeholder="4º peso"></p>
-        <p><label for="P05"> Peso 05: </label> <input type="text" name="tP5" id="P05" size="10" maxlength="6" placeholder="5º peso"></p>
-        <p><label for="P06"> Peso 06: </label> <input type="text" name="tP6" id="P06" size="10" maxlength="6" placeholder="6º peso"></p>
-        <p><label for="P07"> Peso 07: </label> <input type="text" name="tP7" id="P07" size="10" maxlength="6" placeholder="7º peso"></p>
-        <p><label for="P08"> Peso 08: </label> <input type="text" name="tP8" id="P08" size="10" maxlength="6" placeholder="8º peso"></p>
-        <p><label for="P09"> Peso 09: </label> <input type="text" name="tP9" id="P09" size="10" maxlength="6" placeholder="9º peso"></p>
-        <p><label for="P10"> Peso 10: </label> <input type="text" name="tP10" id="P10" size="10" maxlength="6" placeholder="10º peso"></p>
-        <P><input type="button" value="Calcular" onclick="calcular()"> </P>
-        <div id="pm" > Resultultado</div>
-    </fieldset>
-    <fieldset id="Resultado">
-        <legend><b>Resultado do Peso Médio (Cápsula/Sachês/Comprimidos)</b></legend>
-        <p><label for="DP">Desvio Padrão </label> <input type="number" name="tdesv" id="Dp" size="10" min="0" max="9999" placeholder="Desv. Padrão" readonly></p>
-        <p><label for="">Coeficiente de Variação </label> <input type="number" name="tCV" id="CV" size="10" min="0" max="9999" placeholder="" readonly> %</p>
-        <p><label for="PMA"> Peso médio das Amostras </label><input type="number" name="tPMA" id="PMA" size="10" min="0" max="99"readonly></p>
-        <p><label select="Res"> Resultado </label><input type="text" name="tRes" id="Res" readonly></p>
-    </fieldset>    
+        <p>1ª Cápsula...: <input type="number" name="p01" id="p01"></p>
+        <p>2ª Cápsula...: <input type="number" name="p02" id="p02"></p>
+        <p>3ª Cápsula...: <input type="number" name="p03" id="p03"></p>
+        <p>4ª Cápsula...: <input type="number" name="p04" id="p04"></p>
+        <p>5ª Cápsula...: <input type="number" name="p05" id="p05"></p>
+        <p>6ª Cápsula...: <input type="number" name="p06" id="p06"></p>
+        <p>7ª Cápsula...: <input type="number" name="p07" id="p07"></p>
+        <p>8ª Cápsula...: <input type="number" name="p08" id="p08"></p>
+        <p>9ª Cápsula...: <input type="number" name="p09" id="p09"></p>
+        <p>10ª Cápsula.: <input type="number" name="p10" id="p10"></p>
+        <P><input id="calc" type="button" value="Calcular" onclick="calcular()"> </P>
+        <p> <div id="Resultado"> *** Média ***</div> </p>
+        <p> <div id="Resultado1"> *** Variante ***</div> </p>
+        <p> <div id="Resultado2"> *** Desvio Padrão ***</div> </p>
+        <p> <div id="Resultado3"> *** Coeficiente de variação ***</div> </p>
+        <p> <div id="Resultado4"> *** Resultado da Análise ****</div></p>
 
+    </fieldset>
+   
 </form>    
-<script>
+    <script>
     
-    function calcular() {
-    var P1 = window.document.getElementById('p01')
-    var P2 = window.document.getElementById('p02')
-    var P3 = window.document.getElementById('p03')
-    var P4 = window.document.getElementById('p04')
-    var P5 = window.document.getElementById('p05')
-    var P6 = window.document.getElementById('p06')
-    var P7 = window.document.getElementById('p07')
-    var P8 = window.document.getElementById('p08')
-    var P9 = window.document.getElementById('p09')
-    var P10 = window.document.getElementById('p10')
-    var res = window.document.getElementById('Resultado')
-    var res1 = window.document.getElementById('Resultado1')
-    var res2 = window.document.getElementById('Resultado2')
-    var res3 = window.document.getElementById('Resultado3')
-    var n1 = Number(P1.value)
-    var n2 = Number(P2.value)
-    var n3 = Number(P3.value)
-    var n4 = Number(P4.value)
-    var n5 = Number(P5.value)
-    var n6 = Number(P6.value)
-    var n7 = Number(P7.value)
-    var n8 = Number(P8.value)
-    var n9 = Number(P9.value)
-    var n10 = Number(P10.value)
-    var media = (n1+n2+n3+n4+n5+n6+n7+n8+n9+n10)/10
-    var vr = ((n1 - media)**2) +((n2 - media)**2) + ((n3 - media)**2) + ((n4 - media)**2) + ((n5 - media)**2) +((n6 - media)**2) +((n7 - media)**2) +((n8 - media)**2) +((n9 - media)**2) +((n10 - media)**2) / 9
-    var dp = vr**(1/2)
-    var cv = (dp/media)*100       
-    res.innerHTML = `<strong> PESO MÉDIO DAS CÁPSULAS:  ${media} Mg</strong>`
-    res1.innerHTML = `<strong> VRIANTE DAS CÁPSULAS:  ${vr} Mg</strong>`
-    res2.innerHTML = `<strong> DESVIO PADRÃO DAS CÁPSULAS:  ${dp} Mg</strong>`
-    res3.innerHTML = `<strong> COEFICIENTE DE VARIAÇÃO DAS CÁPSULAS: ${cv} %</strong>`
-    
- }
- </script>
+       function calcular() {
+       var P1 = window.document.getElementById('p01')
+       var P2 = window.document.getElementById('p02')
+       var P3 = window.document.getElementById('p03')
+       var P4 = window.document.getElementById('p04')
+       var P5 = window.document.getElementById('p05')
+       var P6 = window.document.getElementById('p06')
+       var P7 = window.document.getElementById('p07')
+       var P8 = window.document.getElementById('p08')
+       var P9 = window.document.getElementById('p09')
+       var P10 = window.document.getElementById('p10')
+       var res = window.document.getElementById('Resultado')
+       var res1 = window.document.getElementById('Resultado1')
+       var res2 = window.document.getElementById('Resultado2')
+       var res3 = window.document.getElementById('Resultado3')
+       var res4 = window.document.getElementById('Resultado4')
+       var n1 = Number(P1.value)
+       var n2 = Number(P2.value)
+       var n3 = Number(P3.value)
+       var n4 = Number(P4.value)
+       var n5 = Number(P5.value)
+       var n6 = Number(P6.value)
+       var n7 = Number(P7.value)
+       var n8 = Number(P8.value)
+       var n9 = Number(P9.value)
+       var n10 = Number(P10.value)
+       var media = (n1+n2+n3+n4+n5+n6+n7+n8+n9+n10)/10
+       var vr = ((n1 - media)**2) +((n2 - media)**2) + ((n3 - media)**2) + ((n4 - media)**2) + ((n5 - media)**2) +((n6 - media)**2) +((n7 - media)**2) +((n8 - media)**2) +((n9 - media)**2) +((n10 - media)**2) / 9
+       var dp = vr**(1/2)
+       var cv = (dp/media)*100       
+       res.innerHTML = `<strong> PESO MÉDIO DAS CÁPSULAS:  ${media} Mg</strong>`
+       res1.innerHTML = `<strong> VRIANTE DAS CÁPSULAS:  ${vr} Mg</strong>`
+       res2.innerHTML = `<strong> DESVIO PADRÃO DAS CÁPSULAS:  ${dp} Mg</strong>`
+       res3.innerHTML = `<strong> COEFICIENTE DE VARIAÇÃO DAS CÁPSULAS: ${cv} %</strong>`
+       
+        if (cv >= 4 )
+            res4.innerHTML = `<strong> Não aporvado! (Coeficiente de variação ultrapassou ${cv})`
+        else
+            res4.innerHTML = `<strong> Aporvado! (Coeficiente de variação não ultrapassou ${cv})`
+       
+       
+    }
+    </script>
 </div>
 </body>
 </html>
