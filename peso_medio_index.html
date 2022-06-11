@@ -57,7 +57,8 @@
            width: 300px;
        }
        div#Resultado4 {
-           font: normal 12pt arial;
+           font: normal 20pt arial;
+
        }
   </style>
 </head>
@@ -128,18 +129,26 @@
        var n9 = Number(P9.value)
        var n10 = Number(P10.value)
        var media = (n1+n2+n3+n4+n5+n6+n7+n8+n9+n10)/10
+       const mediaf = media.toFixed(2)
+
        var vr = ((n1 - media)**2) +((n2 - media)**2) + ((n3 - media)**2) + ((n4 - media)**2) + ((n5 - media)**2) +((n6 - media)**2) +((n7 - media)**2) +((n8 - media)**2) +((n9 - media)**2) +((n10 - media)**2) / 9
+       const vrf = vr.toFixed(2)
+
        var dp = vr**(1/2)
-       var cv = (dp/media)*100       
-       res.innerHTML = `<strong> PESO MÉDIO DAS CÁPSULAS:  ${media} Mg</strong>`
-       res1.innerHTML = `<strong> VRIANTE DAS CÁPSULAS:  ${vr} Mg</strong>`
-       res2.innerHTML = `<strong> DESVIO PADRÃO DAS CÁPSULAS:  ${dp} Mg</strong>`
-       res3.innerHTML = `<strong> COEFICIENTE DE VARIAÇÃO DAS CÁPSULAS: ${cv} %</strong>`
+       const dpf = dp.toFixed(2)
+
+       var cv = (dp/media)*100
+       const cvf = cv.toFixed(2)
+
+       res.innerHTML = `<strong> PESO MÉDIO DAS CÁPSULAS:  ${mediaf} Mg</strong>`
+       res1.innerHTML = `<strong> VRIANTE DAS CÁPSULAS:  ${vrf} Mg</strong>`
+       res2.innerHTML = `<strong> DESVIO PADRÃO DAS CÁPSULAS:  ${dpf} Mg</strong>`
+       res3.innerHTML = `<strong> COEFICIENTE DE VARIAÇÃO DAS CÁPSULAS: ${cvf} %</strong>`
        
         if (cv >= 4 )
-            res4.innerHTML = `<strong> Não aporvado! (Coeficiente de variação ultrapassou ${cv})`
+            res4.innerHTML = `<strong> Não aporvado!`
         else
-            res4.innerHTML = `<strong> Aporvado! (Coeficiente de variação não ultrapassou ${cv})`
+            res4.innerHTML = `<strong> Aprovado!`
        
        
     }
