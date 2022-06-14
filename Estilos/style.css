@@ -1,6 +1,6 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 22px;
   }
   
   h1 {
@@ -25,7 +25,7 @@
   p{
     color: rgb(0, 0, 0);
     font-family: arial, sans-serif;
-    font-size: 15px;	
+    font-size: 16px;	
     text-align: justify;
     margin-top: 10px;
     }
@@ -41,7 +41,7 @@
   
   fieldset{
     margin-top: 20px;
-    background-color: rgb(250, 245, 245);
+    background-color: white;
     }
     
   div#Resultado {
@@ -63,6 +63,7 @@
   input#calc { 
     font:normal 25pt arial;
     width: 300px;
+    background-color: rgba(0, 47, 255, 0.644);
     }
   
   div#Resultado4 {
